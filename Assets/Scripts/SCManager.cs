@@ -53,7 +53,14 @@ public class SCManager : MonoBehaviour
 
     public void LoadSceneByIndex(int sceneIndex)
     {
-        currentLife = GameManager.life;
+        if(GameManager.life == 0)
+        {
+            currentLife = 100;
+        }
+        else
+        {
+            currentLife = GameManager.life;
+        }
         SceneManager.LoadScene(sceneIndex);
         //Para añadir una nueva escena a la actual, como por ejemplo un inventario o un mapa
         //SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
